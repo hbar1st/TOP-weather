@@ -22,7 +22,6 @@ function getSectionEl(docObj) {
 }
 
 function showWeather(docObj, wObj) {
-  console.log(wObj);
   let sectionEl = getSectionEl(docObj);
   sectionEl.innerHTML = `<h2>${wObj.address}</h2>`;
   let divEl = `<div class="results weather">
@@ -43,7 +42,6 @@ function showWeather(docObj, wObj) {
         <div>Chance of Precipitation: ${wObj.precipprob}</div>
        </div></div>`
     : `</div>`;
-  console.log(divEl);
   sectionEl.innerHTML += divEl;
 }
 
@@ -64,7 +62,6 @@ async function getWeather(location) {
     );
     if (response.ok) {
       const weather = await response.json();
-      console.log(weather);
       const weatherObj = makeWeatherObj(weather);
 
       function makeWeatherObj(w) {
