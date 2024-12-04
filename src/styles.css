@@ -1,5 +1,67 @@
+@font-face {
+  font-family: "Parkinsans-header";
+  src: url("./assets/Parkinsans-VariableFont_wght.ttf") format("ttf");
+  font-weight: 600;
+  font-variation-settings: "wght" 800;
+  font-style: normal;
+  font-optical-sizing: auto;
+}
+
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Parkinsans-header";
+}
+
+body {
+  width: 100vw;
+  height: 100dvh;
+}
+header {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px;
+  background-image: url("./assets/banner-sky.jpg");
+  background-size: cover;
+
+  h1 {
+    font-family: "Parkinsans-header";
+  }
+}
+form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  div {
+    margin: 30px auto;
+
+    border: 1px solid blue;
+    border-radius: 20px;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: auto 1fr;
+    background-color: white;
+    img {
+      grid-column: 1;
+    }
+    input {
+      grid-column: 2;
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+  }
+
+  button {
+    padding: initial;
+    margin: initial;
+  }
 }
