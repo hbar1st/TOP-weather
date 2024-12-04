@@ -1,8 +1,7 @@
 @font-face {
   font-family: "Parkinsans-header";
-  src: url("./assets/Parkinsans-VariableFont_wght.ttf") format("ttf");
+  src: url("./assets/Parkinsans-VariableFont_wght.ttf") format("truetype");
   font-weight: 600;
-  font-variation-settings: "wght" 800;
   font-style: normal;
   font-optical-sizing: auto;
 }
@@ -17,6 +16,16 @@
 body {
   width: 100vw;
   height: 100dvh;
+  background-color: #e4e9f5;
+}
+
+main {
+  display: flex;
+
+  h2 {
+    margin: 30px;
+    color: #2849a2;
+  }
 }
 header {
   width: 100%;
@@ -31,6 +40,7 @@ header {
 
   h1 {
     font-family: "Parkinsans-header";
+    color: #e4e9f5;
   }
 }
 form {
@@ -43,12 +53,14 @@ form {
   div {
     margin: 30px auto;
 
-    border: 1px solid blue;
-    border-radius: 20px;
+    border: 1px solid 25345e;
+    border-radius: 10px;
     display: grid;
     grid-template-rows: 1fr;
     grid-template-columns: auto 1fr;
-    background-color: white;
+    background-color: #e4e9f5;
+
+    box-shadow: 0px 1px 4px 3px #394056;
     img {
       grid-column: 1;
     }
@@ -57,11 +69,38 @@ form {
       width: 100%;
       border: none;
       outline: none;
+      border-end-end-radius: 20px;
+      border-top-right-radius: 20px;
+      background-color: transparent;
     }
   }
 
   button {
-    padding: initial;
-    margin: initial;
+    padding: 2px 7px;
+    border-radius: 2px;
+    background-color: #e4e9f5;
+    box-shadow: 0px 1px 3px 1px #394056;
   }
+}
+
+button:hover,
+div:hover {
+  box-shadow: 1px 1px 4px 5px #9b9da4;
+  background-color: white;
+}
+
+.results {
+  margin: 1px 30px;
+  border: 5px solid black;
+  border-top: none;
+  border-bottom: none;
+  border-radius: 20px;
+  width: 50vw;
+  aspect-ratio: 1;
+  background-color: black;
+}
+
+a {
+  color: #9b9da4;
+  padding: 30px;
 }

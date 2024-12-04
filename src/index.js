@@ -32,6 +32,17 @@ function importAll(r) {
 }
 
 const images = importAll(require.context("./assets", false, /\.svg$/));
+/** 
+async function loadWeatherClip() {
+  try {
+    const response = await fetch(
+      `https://api.giphy.com/v1/gifs/<gif_id>&api_key=MXbaEHymL6YFTBnjmtPWScBenZYCEN29`
+    );
+  } catch (err) {
+    alert(err);
+  }
+}
+**/
 
 async function getWeather(location) {
   try {
