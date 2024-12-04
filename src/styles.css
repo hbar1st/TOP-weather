@@ -21,6 +21,8 @@ body {
 
 main {
   display: flex;
+  max-width: fit-content;
+  max-height: fit-content;
 
   h2 {
     margin: 30px;
@@ -84,7 +86,7 @@ form {
 }
 
 button:hover,
-div:hover {
+form div:hover {
   box-shadow: 1px 1px 4px 5px #9b9da4;
   background-color: white;
 }
@@ -95,12 +97,57 @@ div:hover {
   border-top: none;
   border-bottom: none;
   border-radius: 20px;
-  width: 50vw;
-  aspect-ratio: 1;
+  min-width: max(300px, 50vw);
+  max-width: min(80%, 600px);
   background-color: black;
 }
 
+.weather {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content;
+  grid-auto-rows: min-content;
+  color: white;
+  .icon {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  #temp {
+    grid-row: 1;
+    color: white;
+    font-size: 3rem;
+
+    padding: 30px;
+  }
+
+  .row {
+    padding: 30px;
+    display: flex;
+    justify-content: flex-start;
+
+    grid-column: 1 / -1;
+    gap: 1rem;
+  }
+}
 a {
   color: #9b9da4;
   padding: 30px;
+}
+
+.icon {
+  border-radius: 20%;
+  padding: 10px;
+  background-color: white;
+  margin: 30px;
+  max-width: 50%;
+  min-width: 50%;
+  aspect-ratio: 1;
+  justify-self: center;
+  align-self: center;
+}
+
+.icon + p {
+  justify-self: center;
+  align-self: center;
 }

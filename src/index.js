@@ -1,4 +1,5 @@
 import "./styles.css";
+import { initializeListener } from "./presentation.js";
 
 /*import clearDaySvg from "./assets/clear-day.svg";    
 import partlyCloudyDaySvg from "./assets/partly-cloudy-day.svg";        
@@ -23,15 +24,7 @@ import rainSnowSvg from "./assets/rain-snow.svg";
 import snowShowersDaySvg from "./assets/snow-showers-day.svg";  
 import thunderShowersNightSvg from "./assets/thunder-showers-night.svg";*/
 
-function importAll(r) {
-  let images = {};
-  r.keys().map((item) => {
-    images[item.replace("./", "")] = r(item);
-  });
-  return images;
-}
 
-const images = importAll(require.context("./assets", false, /\.svg$/));
 /** 
 async function loadWeatherClip() {
   try {
@@ -44,38 +37,6 @@ async function loadWeatherClip() {
 }
 **/
 
-async function getWeather(location) {
-  try {
-    const response = await fetch(
-      `https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${location}?iconSet=icons2&unitGroup=metric&key=FGYFZL7WCPJ7LS7GZ4BLL4RST`
-    );
 
-    const weather = await response.json();
-    const weatherObj = makeWeatherObj(weather);
 
-    function makeWeatherObj(w) {
-      const iconFileName = `${w.currentConditions.icon}.svg`;
-
-      return {
-        conditions: w.currentConditions.conditions,
-        precip: w.currentConditions.precip,
-        preciptype: w.currentConditions.preciptype,
-        precipprob: w.currentConditions.precipprob,
-        temp: w.currentConditions.temp,
-        windgust: w.currentConditions.windgust,
-        windspeed: w.currentConditions.windspeed,
-        snow: w.currentConditions.snow,
-        humidity: w.currentConditions.humidity,
-        icon: w.currentConditions.icon,
-        iconImg: `${images[iconFileName]}`,
-        feelslike: w.currentConditions.feelslike,
-      };
-    }
-
-    return weatherObj;
-  } catch (err) {
-    alert(err);
-  }
-}
-
-getWeather("london");
+initializeListener(document);
